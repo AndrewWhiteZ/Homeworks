@@ -37,4 +37,5 @@ public class KitchenOrderService {
     private void destroy() {
         log.info("+-- Kitchen: Order was destroyed! --+");
     }
+
 }

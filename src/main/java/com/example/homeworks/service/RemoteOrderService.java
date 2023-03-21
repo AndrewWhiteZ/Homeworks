@@ -9,6 +9,7 @@ import javax.annotation.PreDestroy;
 @Service
 @Log4j2
 public class RemoteOrderService implements CustomerOrderService {
+
     // Field Injection
     @Autowired
     private KitchenOrderService kitchenOrderService;

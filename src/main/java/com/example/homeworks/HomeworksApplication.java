@@ -11,4 +11,5 @@ public class HomeworksApplication {
         ConfigurableApplicationContext context = SpringApplication.run(HomeworksApplication.class, args);
         context.close();
     }
+
 }

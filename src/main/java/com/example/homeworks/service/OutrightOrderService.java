@@ -10,7 +10,6 @@ import javax.annotation.PreDestroy;
 @Log4j2
 public class OutrightOrderService implements CustomerOrderService {
     private KitchenOrderService kitchenOrderService;
-
     // Setter Injection
     @Autowired
     public void setKitchenOrderService(KitchenOrderService kitchenOrderService) {

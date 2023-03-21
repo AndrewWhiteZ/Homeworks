@@ -16,4 +16,5 @@ public class KitchenShift {
     public void endShift() {
         log.info("Current shift ended at: " + calendar.getTime());
     }
+
 }
