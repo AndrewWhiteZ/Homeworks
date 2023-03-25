@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Service
+@Service("outrightOrderService")
 @Log4j2
 public class OutrightOrderService implements CustomerOrderService {
     private KitchenOrderService kitchenOrderService;

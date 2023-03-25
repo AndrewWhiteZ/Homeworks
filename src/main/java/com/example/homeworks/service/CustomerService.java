@@ -1,31 +1,21 @@
 package com.example.homeworks.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerService {
-    private final OutrightOrderService outrightOrderService;
-    private final RemoteOrderService remoteOrderService;
+    // Field Injection
+    @Autowired
+    @Qualifier("outrightOrderService")
+    private CustomerOrderService customerOrderService;
 
-    CustomerService(OutrightOrderService outrightOrderService, RemoteOrderService remoteOrderService) {
-        this.outrightOrderService = outrightOrderService;
-        this.remoteOrderService = remoteOrderService;
+    public void createOrder() {
+        customerOrderService.createOrder();
     }
 
-    public void createRemoteOrder() {
-        remoteOrderService.createOrder();
+    public void cancelOrder() {
+        customerOrderService.cancelOrder();
     }
-
-    public void createOutrightOrder() {
-        outrightOrderService.createOrder();
-    }
-
-    public void cancelRemoteOrder() {
-        remoteOrderService.cancelOrder();
-    }
-
-    public void cancelOutrightOrder() {
-        outrightOrderService.cancelOrder();
-    }
-
 }

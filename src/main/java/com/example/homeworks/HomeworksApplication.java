@@ -6,10 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class HomeworksApplication {
-
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(HomeworksApplication.class, args);
-        context.close();
+        SpringApplication.run(HomeworksApplication.class, args);
     }
-
 }
