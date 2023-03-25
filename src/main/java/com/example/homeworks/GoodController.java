@@ -1,13 +1,11 @@
 package com.example.homeworks;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.homeworks.Dto.GoodDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 @RestController
@@ -17,7 +15,7 @@ public class GoodController {
     private ArrayList<GoodDto> goods = new ArrayList<>();
 
     /**
-     * Вызывает самодельное исключение со статусом 502 (BAD_GATEWAY)
+     * Вызывает кастомное исключение со статусом 502 (BAD_GATEWAY)
      * */
     @GetMapping("/getBadGateway")
     public ResponseEntity<?> getBadGateway() {
@@ -31,14 +29,13 @@ public class GoodController {
     }
 
     /**
-     * Принимает JSON-объект, добавляет случайный ID (0 - 1000) и возваращает в виде JSON-строки
+     * Принимает JSON-объект, добавляет случайный ID (0 - 1000) и возваращает его обратно
      * */
-    @PostMapping("/add")
+    @PostMapping()
     @ResponseBody
-    public String addGood(@RequestBody String inputJSON) throws IOException {
-        GoodDto good = new ObjectMapper().readValue(inputJSON, GoodDto.class);
+    public GoodDto addGood(@RequestBody GoodDto good) {
         good.getInfoDto().setId(Math.round(Math.random() * 1000));
         goods.add(good);
-        return new ObjectMapper().writeValueAsString(good);
+        return good;
     }
 }

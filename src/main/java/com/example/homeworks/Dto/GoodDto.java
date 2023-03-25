@@ -1,4 +1,4 @@
-package com.example.homeworks;
+package com.example.homeworks.Dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

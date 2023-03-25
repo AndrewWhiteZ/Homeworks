@@ -1,34 +1,36 @@
 package com.example.homeworks;
 
-import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
-
 
 @RestController
 @RequestMapping("/orders")
-@Log4j2
 public class OrderController {
-    private final OrderServiceImpl orderService = new OrderServiceImpl();
+    private final OrderServiceImpl orderService;
+
+    @Autowired
+    public OrderController(OrderServiceImpl orderService) {
+        this.orderService = orderService;
+    }
 
     /**
      * Возвращает список заголовков запроса
      * */
-    @GetMapping("/")
+    @GetMapping()
     private ArrayList<String> getOrdersList(@RequestHeader MultiValueMap<String, String> headers) {
         ArrayList<String> headersList = new ArrayList<>();
         headers.forEach((header, value) -> headersList.add(header + ": " + String.join("; ", value)));
         return headersList;
     }
 
-    @GetMapping("/create")
+    @PostMapping()
     private void createOrder() {
         orderService.createOrder();
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping()
     private void deleteOrder() {
         orderService.deleteOrder();
     }
