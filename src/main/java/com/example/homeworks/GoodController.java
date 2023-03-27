@@ -1,6 +1,6 @@
 package com.example.homeworks;
 
-import com.example.homeworks.Dto.GoodDto;
+import com.example.homeworks.dto.GoodDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
