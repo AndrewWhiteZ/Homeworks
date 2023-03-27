@@ -15,9 +15,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Constraint(validatedBy = {})
 @Documented
-@NotBlank
-@Pattern(regexp = "^\\S*$") /* Регулярное выражение проверяет строку на отсутствие пробелов */
-@Size(min = 2, max = 100)
+@NotBlank(message = "Name and surname cannot be blank")
+@Pattern(regexp = "^\\S*$", message = "Name and surname cannot contain whitespaces") /* Регулярное выражение проверяет строку на отсутствие пробелов */
+@Size(min = 2, message = "Name and surname must contain at least two characters")
 public @interface NameConstraint {
     String message() default "Name and surname must contain at least two characters";
 
