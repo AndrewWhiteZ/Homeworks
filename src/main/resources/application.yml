@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: "Application"
+  profiles:
+    active: "test"
+example:
+  test: ${EXAMPLE_TEST:default}
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  application:
+    name: "Application-Dev"
+  goods:
+    - apple
+    - kiwi
+    - peach
+---
+spring:
+  config:
+    activate:
+      on-profile: "test"
+  application:
+    name: "Application-Test"
+  goods:
+    - banana
+    - orange
+    - pineapple
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  application:
+    name: "Application-Production"
+  goods:
+    - lime
+    - strawberry
+    - melon
+...
