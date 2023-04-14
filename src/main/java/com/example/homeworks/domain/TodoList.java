@@ -1,5 +1,6 @@
 package com.example.homeworks.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
@@ -16,5 +17,6 @@ public class TodoList {
     private String title;
 
     @OneToMany(mappedBy = "todoList", cascade = CascadeType.ALL)
+    @JsonProperty("events")
     private List<TodoEvent> todoEvents;
 }

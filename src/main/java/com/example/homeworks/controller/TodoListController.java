@@ -31,6 +31,7 @@ public class TodoListController {
     @PostMapping("/lists")
     @ResponseBody
     public void createList(@RequestBody TodoList todoList) {
+        todoList.getTodoEvents().forEach(event -> event.setTodoList(todoList));
         todoListService.createList(todoList);
     }
 
